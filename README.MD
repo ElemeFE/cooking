@@ -34,7 +34,17 @@ build mode, output assets to the `dist` directory.
 
 # cooking.conf.js
 
-Configure your webpack.
+```javacript
+module.exports = function(webpack) {
+  return {
+    use: 'vue',
+    port: '8080',
+    openBrowser: false,
+
+    // Configure your webpack.
+  };
+};
+```
 
 # Inspiration
 [@egoist/tooling](https://github.com/egoist/tooling)

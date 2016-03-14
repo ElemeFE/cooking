@@ -1,4 +1,7 @@
-module.exports = {
-  use: 'angular',
-  port: '8080'
+module.exports = function(webpack) {
+  return {
+    use: 'angular',
+    port: '8080',
+    openBrowser: false
+  };
 };

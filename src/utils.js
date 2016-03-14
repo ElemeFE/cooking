@@ -16,11 +16,11 @@ module.exports = {
     return path.join(__dirname, '../' + filePath);
   },
 
-  loadUserConfig: function() {
+  loadUserConfig: function(webpack) {
     try {
-      return require(cwd('cooking.conf.js'));
+      return require(cwd('cooking.conf.js'))(webpack);
     } catch(err) {
-      console.error('\ncooking.conf.js not exist. please run "cooking init".\n');
+      throw Error(err);
       return;
     }
   },

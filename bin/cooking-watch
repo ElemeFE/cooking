@@ -7,20 +7,25 @@ var utils = require('./../src/utils');
 var CONTACTS = require('./../src/contacts');
 
 module.exports = function() {
-  var userConfig = utils.loadUserConfig();
+  var baseConfig, userConfig, compiler, port, config;
+
+  userConfig = utils.loadUserConfig(webpack);
   if (!userConfig) {
     return;
   }
-  var config = utils.loadWebpackConfig(CONTACTS.DEV, userConfig.use);
-  var compiler = webpack(utils.webpackMerge(config, userConfig));
-  var port = userConfig.port || 8080;
 
+  baseConfig = utils.loadWebpackConfig(CONTACTS.DEV, userConfig.use);
+  config = utils.webpackMerge(baseConfig, userConfig);
+  compiler = webpack(config);
+  port = userConfig.port || 8080;
   WebpackHotServer({
     config: config,
     port: port,
     customIndex: true
   }).then(function(port) {
-    open('http://localhost:' + port);
+    if (userConfig.openBrowser) {
+      open('http://localhost:' + port);
+    }
   }).catch(function(err) {
     console.error(err);
   });
