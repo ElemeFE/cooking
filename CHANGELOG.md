@@ -3,6 +3,7 @@
 ## 未发布
 - cooking:
   - watch 时增加 NamedModulesPlugin
+  - 新增 `env` 选项，设置 definePlugin。不填时会自动设置 process.env.NODE_ENV，如果传入字符串会覆盖原来的 NODE_ENV，传入对象会和原来的配置合并
 
 ## [v1.1.1] 2016.09.20
 - cooking:

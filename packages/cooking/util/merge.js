@@ -84,6 +84,21 @@ module.exports = function (userConfig, baseConfig) {
     config.output.umdNamedDefine = true
   }
 
+  // node_env
+  if (is.Object(userConfig.env)) {
+    config.plugins.Define = new webpack.DefinePlugin(Object.assign({
+      'process.env.NODE_ENV': JSON.stringify(process.env.NODE_ENV)
+    }, userConfig.env))
+  } else {
+    config.plugins.Define = new webpack.DefinePlugin({
+      'process.env.NODE_ENV': JSON.stringify(
+        is.nil(userConfig.env) ?
+        process.env.NODE_ENV :
+        userConfig.env
+      )
+    })
+  }
+
   // development
   if (process.env.NODE_ENV === 'development') {
     config.devtool = '#eval-source-map'
@@ -119,13 +134,6 @@ module.exports = function (userConfig, baseConfig) {
       config.output.filename = '[name].[chunkhash:7].js'
       config.output.chunkFilename = '[id].[chunkhash:7].js'
     }
-
-    // plugin
-    config.plugins.Define = new webpack.DefinePlugin({
-      'process.env': {
-        NODE_ENV: '"production"'
-      }
-    })
 
     const minimize = userConfig.minimize
     const UglifyJs = new webpack.optimize.UglifyJsPlugin({
