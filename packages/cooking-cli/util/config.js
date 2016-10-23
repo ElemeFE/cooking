@@ -6,6 +6,14 @@ const PLUGIN_PATH = require('./path').PLUGIN_PATH
 
 const filename = 'config.json'
 const filePath = path.join(PLUGIN_PATH, filename)
+const defaultConfig = {
+  template: 'vue',
+  pm: 'npm',
+  registry: '',
+  updateCheck: true,
+  github: '',
+  author: ''
+}
 
 const formatBoolean = value => {
   if (value === 'true') {
@@ -22,15 +30,7 @@ const requireFile = () => {
 
 exports.init = () => {
   if (!fs.existsSync(filePath)) {
-    const config = {
-      template: 'vue',
-      registry: '',
-      updateCheck: true,
-      github: '',
-      author: ''
-    }
-
-    fs.writeFileSync(filePath, JSON.stringify(config, null, 2))
+    fs.writeFileSync(filePath, JSON.stringify(defaultConfig, null, 2))
   }
 }
 
@@ -45,7 +45,7 @@ exports.get = option => {
 exports.set = (option, value) => {
   const config = requireFile()
 
-  if (config[option] !== undefined) {
+  if (defaultConfig.hasOwnProperty(option)) {
     config[option] = formatBoolean(value)
     fs.writeFileSync(filePath, JSON.stringify(config, null, 2))
 

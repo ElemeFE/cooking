@@ -1,0 +1,14 @@
+{
+  "npm": {
+    "install": "install",
+    "uninstall": "uninstall",
+    "update": "update",
+    "name": "npm"
+  },
+  "yarn": {
+    "install": "add",
+    "uninstall": "remove",
+    "update": "upgrade",
+    "name": "yarn"
+  }
+}

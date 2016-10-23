@@ -11,7 +11,7 @@ const value = program.args[1] || ''
 
 if (!option) {
   logger.log('--------------')
-  logger.log('配置信息')
+  logger.log('config info')
   logger.log('--------------')
 
   console.log(json.plain(config.get()))
@@ -19,7 +19,7 @@ if (!option) {
 }
 
 if (!config.set(option, value)) {
-  logger.fatal('不存在配置项')
+  logger.fatal('The option is not exist')
 }
 config.get(option)
 logger.success(option + ' = ' + config.get(option))
