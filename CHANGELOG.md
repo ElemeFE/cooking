@@ -3,6 +3,7 @@
 ## [v1.2.0] 未发布
 - cooking-cli:
   - 支持 yarn，通过 `cooking config pm yarn` 将包管理设置成 yarn 即可
+  - 支持 webpack 2 新版配置规则
 
 ## [v1.1.4] 2016.10.13
 - cooking:
