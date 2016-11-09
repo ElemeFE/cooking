@@ -78,7 +78,7 @@ exports.add = function (_path, value) {
  */
 exports.resolve = function () {
   if (isNextWebpack) {
-    return to2(parse(this.config))
+    return to2(parse(this.config), { quiet: true })
   }
   return parse(this.config)
 }
