@@ -195,6 +195,9 @@ module.exports = function (userConfig, baseConfig) {
 
   // postcss
   if (userConfig.postcss) {
+    if (isNextWebpack) {
+      logger.fatal('postcss 选项在 webpack 2 中不再支持，请使用 postcss 配置文件进行配置，参考 https://github.com/michael-ciniawsky/postcss-load-config')
+    }
     config.postcss = require('./load-postcss')(userConfig.postcss)
   }
 
