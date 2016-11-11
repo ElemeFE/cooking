@@ -77,8 +77,18 @@ exports.add = function (_path, value) {
  * return webpack config
  */
 exports.resolve = function () {
+  var v = exports.webpackVersion
+  var needParse = false
+
+  // webpack: 2
   if (isNextWebpack) {
-    return to2(parse(this.config), {quiet: true})
+    // <=2.1.0-beta.25
+    if (/beta/.test(v) && v.split('.').pop() < 25) {
+      needParse = false
+    } else {
+      needParse = true
+    }
   }
-  return parse(this.config)
+
+  return needParse ? to2(parse(this.config), {quiet: true}) : parse(this.config)
 }
