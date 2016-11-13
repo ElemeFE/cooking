@@ -90,5 +90,7 @@ exports.resolve = function () {
     }
   }
 
-  return needParse ? to2(parse(this.config), {quiet: true}) : parse(this.config)
+  return needParse ?
+    to2(parse(this.config), {quiet: true, context: true}) :
+    parse(this.config)
 }
