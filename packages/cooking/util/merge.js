@@ -62,7 +62,9 @@ module.exports = function (userConfig, baseConfig) {
   config.output.path = path.resolve(process.cwd(), userConfig.dist || baseConfig.output.path)
 
   // publicPath
-  config.output.publicPath = userConfig.publicPath || config.output.publicPath
+  config.output.publicPath = is.nil(userConfig.publicPath) ?
+    config.output.publicPath :
+    userConfig.publicPath
 
   // template
   if (userConfig.template !== false) {

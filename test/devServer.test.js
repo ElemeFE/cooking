@@ -39,3 +39,13 @@ test('config', t => {
 
   t.deepEqual(server, config)
 })
+
+test('publicPath is void string', t => {
+  const server = devServer({
+    publicPath: ''
+  })
+  let config = defaultServer
+  config.publicPath = ''
+
+  t.deepEqual(server, config)
+})
