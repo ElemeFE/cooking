@@ -41,6 +41,12 @@ if (!configs.devServer.enable) {
     logger.log('webpack info \n' + stats.toString(configs.devServer.stats))
   })
 } else {
+  // fix mistake in webpack-dev-server@^2.1.0-beta11
+  delete configs.devServer.enable
+  delete configs.devServer.log
+  configs.devServer.host = configs.devServer.hostname || configs.devServer.host
+  delete configs.devServer.hostname
+
   // webpack dev server
   logger.log('Loading server...')
   var hostPlugin = webpack.HotModuleReplacementPlugin || function() {}
@@ -53,8 +59,9 @@ if (!configs.devServer.enable) {
   }
 
   const devServer = configs.devServer
+  const host = `${devServer.https ? 'https' : 'http'}://${devServer.host}:${devServer.port}`
 
-  logger.success(`Listening at ${devServer.host}`)
+  logger.success(`Listening at ${host}`)
   new DevServer(webpack(configs), devServer)
-    .listen(devServer.port, devServer.hostname)
+    .listen(devServer.port, devServer.host)
 }

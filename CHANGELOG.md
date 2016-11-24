@@ -3,6 +3,8 @@
 ## 未发布
 - cooking-cli
   - 修复 remove/update 从旧版升级后无法使用，提示 `Only supports npm, yarn`
+- cooking
+  - 支持 webpack-dev-server beta11, #111
 
 ## [v1.2.3] 2016.11.21
 - cooking-cli

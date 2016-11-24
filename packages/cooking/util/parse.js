@@ -21,9 +21,6 @@ module.exports = function (config) {
   if (process.env.NODE_ENV === 'development') {
     // install dev server
     config.devServer = require('../util/load-server')(config.devServer)
-    if (config.devServer.enable) {
-      config.devServer.host = config.devServer.protocol + '//' + config.devServer.hostname + ':' + config.devServer.port
-    }
 
     // update path
     config.output.publicPath = config.devServer.publicPath || config.output.publicPath || '/'
