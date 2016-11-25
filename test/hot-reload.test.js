@@ -5,7 +5,7 @@ import loadServer from '../packages/cooking/util/load-server'
 test('load hotreload', t => {
   const entry = 'entry.js'
   const devServer = {
-    host: 'http://localhost:8080',
+    host: 'localhost',
     enable: true
   }
   const config = hotReload(entry, loadServer(devServer))
@@ -25,7 +25,7 @@ test('multiple enty', t => {
     pageB: 'pageB.js'
   }
   const devServer = {
-    host: 'http://localhost:8080',
+    host: 'localhost',
     enable: true,
     log: true
   }
@@ -50,7 +50,7 @@ test('multiple enty', t => {
 test('disabled hotreload', t => {
   const entry = 'entry.js'
   const devServer = {
-    host: 'http://localhost:8080',
+    host: 'localhost',
     enable: false
   }
   const config = hotReload(entry, loadServer(devServer))
@@ -63,7 +63,7 @@ test('disabled hotreload', t => {
 test('no entry', t => {
   process.env.NODE_ENV = 'testing'
   const devServer = {
-    host: 'http://localhost:8080',
+    host: 'localhost',
     enable: false
   }
 
