@@ -1,5 +1,9 @@
 # CHANGELOG
 
+## [v1.2.5] 2016.11.25
+- cooking
+  - 修复 dev server 默认配置
+
 ## [v1.2.4] 2016.11.24
 - cooking-cli
   - 修复 remove/update 从旧版升级后无法使用，提示 `Only supports npm, yarn`
