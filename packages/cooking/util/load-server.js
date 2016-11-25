@@ -25,9 +25,9 @@ module.exports = server => {
   if (isObject(server)) {
     const config = Object.assign(defaultServer, server)
 
-    config.host = config.hostname || server.host
-    delete config.hostname
+    config.host = config.hostname || config.host || defaultServer.host
     config.__host__ = `${config.https ? 'https' : 'http'}://${config.host}:${config.port}`
+    delete config.hostname
 
     return config
   }
