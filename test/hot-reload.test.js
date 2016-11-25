@@ -14,6 +14,7 @@ test('load hotreload', t => {
     app: [
       'webpack-dev-server/client?http://localhost:8080/',
       'webpack/hot/dev-server',
+      'webpack-hud',
       'entry.js'
     ]
   })

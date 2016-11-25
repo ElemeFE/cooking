@@ -8,7 +8,8 @@ const defaultServer = {
   historyApiFallback: true,
   lazy: false,
   stats: 'errors-only',
-  host: 'localhost'
+  host: 'localhost',
+  __host__: 'http://localhost:8080'
 }
 
 test('default config', t => {
