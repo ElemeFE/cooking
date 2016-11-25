@@ -20,7 +20,7 @@ module.exports = function (entry, devServer) {
 
   if (devServer.enable) {
     const data = [
-      'webpack-dev-server/client?' + devServer.host + '/',
+      `webpack-dev-server/client?${devServer.__host__}/`,
       'webpack/hot/dev-server'
     ]
 
