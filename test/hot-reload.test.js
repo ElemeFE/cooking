@@ -1,5 +1,6 @@
 import test from 'ava'
 import hotReload from '../packages/cooking/util/hot-reload'
+import loadServer from '../packages/cooking/util/load-server'
 
 test('load hotreload', t => {
   const entry = 'entry.js'
@@ -7,7 +8,7 @@ test('load hotreload', t => {
     host: 'http://localhost:8080',
     enable: true
   }
-  const config = hotReload(entry, devServer)
+  const config = hotReload(entry, loadServer(devServer))
 
   t.deepEqual(config, {
     app: [
@@ -28,7 +29,7 @@ test('multiple enty', t => {
     enable: true,
     log: true
   }
-  const config = hotReload(entry, devServer)
+  const config = hotReload(entry, loadServer(devServer))
 
   t.deepEqual(config, {
     pageA: [
@@ -52,7 +53,7 @@ test('disabled hotreload', t => {
     host: 'http://localhost:8080',
     enable: false
   }
-  const config = hotReload(entry, devServer)
+  const config = hotReload(entry, loadServer(devServer))
 
   t.deepEqual(config, {
     app: ['entry.js']
