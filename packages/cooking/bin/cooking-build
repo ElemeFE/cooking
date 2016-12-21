@@ -51,13 +51,18 @@ compiler.plugin('done', stats => {
 compiler.run(function (err, stats) {
   if (err) {
     logger.fatal(err)
-    return
   }
 
-  logger.success('info\n' + stats.toString({
+  var config = {
     colors: program.color,
     chunks: false,
     hash: false,
     version: false
-  }))
+  };
+
+  if (stats.hasErrors()) {
+    logger.fatal(stats.toString(config))
+  }
+
+  logger.success('info\n' + stats.toString(config))
 })
