@@ -2,6 +2,7 @@
 
 ## [v1.2.12] 2016.12.21
 - cooking: build 出错后正确执行 `exit(1)`
+- cooking: 增加版本提示
 
 ## [v1.2.11] 2016.12.20
 - cooking: 修复开发模式下无法自定义 sourceMap

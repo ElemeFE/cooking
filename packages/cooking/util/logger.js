@@ -2,11 +2,12 @@
 
 const format = require('util').format
 const chalk = require('chalk')
+const version = require('../package.json').version
 
 /**
  * Prefix.
  */
-const prefix = '[cooking]'
+const prefix = `[cooking@${version}]`
 const sep = chalk.gray('-')
 
 /**
