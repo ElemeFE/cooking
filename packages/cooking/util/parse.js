@@ -2,6 +2,7 @@
 
 const _toArray = require('lodash/toArray')
 const shelljs = require('shelljs')
+const CopyPlugin = require('./copy-plugin')
 
 module.exports = function (config) {
   // parse loader
@@ -34,6 +35,13 @@ module.exports = function (config) {
 
   if (config.__COOKING_CLEAN__) {
     shelljs.rm('-rf', config.output.path)
+    delete config.__COOKING_CLEAN__
+  }
+
+  if (process.env.NODE_ENV === 'production' && config.__COOKING_STATIC__) {
+    const $static = config.__COOKING_STATIC__
+    config.plugins.push(new CopyPlugin($static === true ? 'static' : $static, config.output.path))
+    delete config.__COOKING_STATIC__
   }
 
   return config

@@ -228,5 +228,10 @@ module.exports = function (userConfig, baseConfig) {
     })
   }
 
+  // static
+  if (userConfig.static) {
+    config.__COOKING_STATIC__ = userConfig.static
+  }
+
   return config
 }
