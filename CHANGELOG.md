@@ -1,5 +1,17 @@
 # CHANGELOG
 
+## [v1.3.0] 2017.1.6
+- cooking: 支持指定 `static` 目录，会自动拷贝 `static` 到输出的目录下。 [为什么需要 static](https://github.com/vuejs-templates/webpack/blob/master/docs/static.md)
+
+用法：
+```js
+{
+  "static": true, // 默认拷贝 static 目录
+  "static": "assets" // 自定义静态资源目录
+  "static": ["docs", "assets"] // 多个静态资源目录
+}
+```
+
 ## [v1.2.12] 2016.12.21
 - cooking: build 出错后正确执行 `exit(1)`
 - cooking: 增加版本提示
