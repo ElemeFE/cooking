@@ -8,8 +8,10 @@ const path = require('path')
 const program = require('commander')
 const logger = require('../util/logger')
 const loadConfig = require('../util/load-config')
+const isBoolean = require('../util/is').Boolean
 const webpack = require('webpack')
 const DevServer = require('webpack-dev-server')
+const cleanDevServer = require('2webpack2/lib/clean-dev-server')
 let configs = []
 
 program
@@ -52,12 +54,12 @@ if (!configs.devServer.enable) {
     configs.plugins.push(new hostPlugin(), new namedModules())
   }
 
-  const devServer = configs.devServer
+  let devServer = configs.devServer
   const host = devServer.__host__
   // fix mistake in webpack-dev-server@^2.1.0-beta11
-  delete configs.devServer.enable
-  delete configs.devServer.log
-  delete devServer.__host__
+  if (isBoolean(configs.devServer.log)) delete configs.devServer.log
+  configs.devServer = cleanDevServer(configs.devServer)
+  devServer = cleanDevServer(devServer)
 
   logger.success(`Listening at ${host}`)
   new DevServer(webpack(configs), devServer)

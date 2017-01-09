@@ -1,5 +1,8 @@
 # CHANGELOG
 
+## [v1.3.1] 2017.1.9
+- cooking: 修复不符合 webpack-dev-server 的参数（例如 extractCSS）导致报错
+
 ## [v1.3.0] 2017.1.6
 - cooking: 支持指定 `static` 目录，会自动拷贝 `static` 到输出的目录下。 [为什么需要 static](https://github.com/vuejs-templates/webpack/blob/master/docs/static.md)
 
