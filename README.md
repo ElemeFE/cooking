@@ -64,7 +64,7 @@ npm i babel-core babel-loader css-loader file-loader postcss postcss-loader\
 # or install webpack dependencies (take webpack 2)
 npm i babel-core babel-loader css-loader file-loader postcss postcss-loader\
  html-loader html-webpack-plugin json-loader style-loader url-loader\
- webpack@beta webpack-dev-server@beta extract-text-webpack-plugin@beta -D
+ webpack webpack-dev-server extract-text-webpack-plugin -D
 
 # start developing
 node_modules/.bin/cooking watch # or webpack --config cooking.conf.js

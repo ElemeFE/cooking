@@ -11,10 +11,6 @@ module.exports = function (userConfig) {
   }
   const assetsPath = userConfig.assetsPath || 'static'
   return {
-    performance: {
-      hints: process.env.NODE_ENV === 'production' ? 'warning' : false
-    },
-
     output: {
       path: path.resolve(process.cwd(), 'dist'),
       publicPath: '/dist/',
