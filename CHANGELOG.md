@@ -1,5 +1,8 @@
 # CHANGELOG
 
+## [v1.3.2] 2017.1.16
+- 兼容 webpack rc4
+
 ## [v1.3.1] 2017.1.9
 - cooking: 修复不符合 webpack-dev-server 的参数（例如 extractCSS）导致报错
 

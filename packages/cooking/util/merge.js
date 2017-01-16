@@ -107,7 +107,7 @@ module.exports = function (userConfig, baseConfig) {
     config.devServer = userConfig.devServer
 
     // plugin
-    config.plugins.NoErrors = new webpack.NoErrorsPlugin()
+    config.plugins.NoErrors = webpack.NoEmitOnErrorsPlugin ? new webpack.NoEmitOnErrorsPlugin() : new webpack.NoErrorsPlugin()
 
     // extractCSS
     if (userConfig.devServer) {
