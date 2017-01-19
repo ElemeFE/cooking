@@ -9,7 +9,7 @@ bootstrap-cn:
 	npm --registry=https://registry.npm.taobao.org i; \
 	npm --registry=https://registry.npm.taobao.org i babel-core babel-loader \
 	css-loader file-loader postcss postcss-loader html-loader html-webpack-plugin \
-	json-loader style-loader url-loader webpack@beta webpack-dev-server@beta \
+	json-loader style-loader url-loader webpack webpack-dev-server \
 	extract-text-webpack-plugin@beta; \
 	cd ../cooking-cli; \
 	sh scripts/bootstrap.sh; \

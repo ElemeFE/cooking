@@ -27,7 +27,7 @@ npm i babel-core babel-loader css-loader file-loader postcss postcss-loader\
 ```shell
 npm i babel-core babel-loader css-loader file-loader postcss postcss-loader\
  html-loader html-webpack-plugin json-loader style-loader url-loader\
- webpack@beta webpack-dev-server@beta extract-text-webpack-plugin@beta -D
+ webpack webpack-dev-server extract-text-webpack-plugin@beta -D
 ```
 
 ## Usage
