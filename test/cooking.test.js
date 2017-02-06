@@ -315,7 +315,7 @@ test('resolve mothod', t => {
 
   const config = cooking.resolve()
 
-  t.true(Array.isArray(config.module.loaders) || Array.isArray(config.module.use))
+  t.true(Array.isArray(config.module.loaders) || Array.isArray(config.module.rules))
   t.true(Array.isArray(config.plugins))
 })
 
