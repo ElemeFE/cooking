@@ -315,7 +315,7 @@ test('resolve mothod', t => {
 
   const config = cooking.resolve()
 
-  t.true(Array.isArray(config.module.loaders))
+  t.true(Array.isArray(config.module.loaders) || Array.isArray(config.module.use))
   t.true(Array.isArray(config.plugins))
 })
 
@@ -417,5 +417,5 @@ test('postcss', t => {
     ]
   }).resolve()
 
-  t.is(typeof config.postcss, 'function')
+  t.is(typeof config.postcss, 'undefined')
 })
