@@ -25,7 +25,9 @@ module.exports = function (filename, program) {
 
   // register progressbar
   if (program.progress) {
-    config.plugins.push(new ProgressBarPlugin())
+    [].concat(config).forEach(function (c) {
+      c.plugins.push(new ProgressBarPlugin())
+    })
   }
 
   return config

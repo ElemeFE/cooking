@@ -24,8 +24,11 @@ program.config = program.config || ['cooking.conf.js']
 // 加载配置
 program.config.forEach(config => {
   config = loadConfig(config, program)
-  configs.push(config)
-  configs.devServer = config.devServer
+  configs = configs.concat(config)
+  ;[].concat(config).forEach(function (c) {
+    // 尽可能获取 devServer 的配置
+    configs.devServer = c.devServer.enable ? c.devServer : (configs.devServer || c.devServer)
+  })
 })
 
 configs = configs.length === 1 ? configs[0] : configs

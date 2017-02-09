@@ -1,4 +1,21 @@
 # CHANGELOG
+## [v1.5.0] 2017.2.9
+- cooking: 配置文件支持传入数组
+```js
+var cooking = require('cooking')
+
+module.exports = [
+  cooking.set({
+    entry: { web: './src/entry.js' },
+    devServer: true
+  }).resolve(),
+  cooking.set({
+    entry: { weex: './src/entry.js' },
+    template: false
+  }).resolve()
+]
+```
+
 ## [v1.4.1] 2017.2.6
 - 锁定 extract-text-webpack-plugin 的版本为 beta4
 
