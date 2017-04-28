@@ -140,7 +140,7 @@ test('cooking set chunk', t => {
   const chunk = new webpack.optimize.CommonsChunkPlugin('vendor')
 
   t.truthy(cooking.config.plugins['commons-chunk'])
-  t.is(cooking.config.plugins['commons-chunk'].chunkNames, chunk.chunkNames)
+  t.deepEqual(cooking.config.plugins['commons-chunk'].chunkNames, chunk.chunkNames)
 
   cooking.set({
     chunk: [
