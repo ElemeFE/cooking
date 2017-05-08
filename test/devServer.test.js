@@ -9,6 +9,7 @@ const defaultServer = {
   lazy: false,
   stats: 'errors-only',
   host: '0.0.0.0',
+  disableHostCheck: true,
   __host__: 'http://0.0.0.0:8080'
 }
 
