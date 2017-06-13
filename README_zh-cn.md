@@ -1,4 +1,4 @@
-<p align="center"><a href="http://elemefe.github.io/cooking/" target="_blank"><img src="https://cdn.rawgit.com/ElemeFE/cooking/gh-pages/static/logo.f3eae12.svg"></a></p>
+<p align="center"><a href="http://elemefe.github.io/cooking/" target="_blank"><img src="https://cloud.githubusercontent.com/assets/7565692/19318700/4f595bec-90dc-11e6-9911-c9ca322e5bf8.png"></a></p>
 <h3 align="center">cooking</h3>
 <p align="center">
   更易上手的前端构建工具
