@@ -190,6 +190,11 @@ module.exports = function (userConfig, baseConfig) {
     config.resolve.alias = userConfig.alias
   }
 
+  // modules
+  if (userConfig.modules) {
+    config.resolve.modules = userConfig.modules
+  }
+
   // externals
   if (userConfig.externals) {
     config.externals = userConfig.externals
